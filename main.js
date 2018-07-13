@@ -1,6 +1,6 @@
 "use strict"
 
-const max_beings = 1000;
+const max_beings = 500;
 
 const position_states = create_dynamic_table({
     x: new Float32Array(max_beings),
@@ -167,8 +167,8 @@ function calculate_nearest_being() {
 
 function calculate_attacking_result() {
     for (let i = 0; i < nearest_being.length; i += 1) {
-        position_states.x_speed[i] -= nearest_being.direction_x[i];
-        position_states.y_speed[i] -= nearest_being.direction_y[i];
+        position_states.x_speed[i] = nearest_being.direction_y[i] * 40;
+        position_states.y_speed[i] = nearest_being.direction_x[i] * 40;
     }
 }
 function combine_goals() {
